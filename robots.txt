@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lgromero25-blip.github.io/kiosco-digital/sitemap.xml
