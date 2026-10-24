@@ -6,53 +6,71 @@
 <title>MiVendedor IA — Demo gratuita</title>
 <meta name="description" content="MiVendedor IA: la herramienta que hace el seguimiento por ti. Cada día te dice a quién escribir por WhatsApp, con el mensaje ya escrito, y te muestra cuánta plata recuperaste.">
 <style>
-:root{--vio:#6d28d9;--vio2:#8b5cf6;--tea:#0d9488;--wa:#25d366;--ink:#1e1b4b;--mut:#64748b;--bg:#f5f6fb;--card:#fff;--red:#dc2626;--org:#ea580c;--grn:#16a34a}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:linear-gradient(120deg,#6d28d9,#0d9488);color:#fff;padding:18px 16px 14px}
-header h1{margin:0;font-size:22px}header p{margin:4px 0 0;opacity:.92;font-size:14px}
-.demo-band{background:#fef3c7;color:#92400e;text-align:center;padding:8px;font-size:13px;font-weight:600}
-nav{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:5}
-nav button{white-space:nowrap;border:1px solid #e2e8f0;background:#fff;border-radius:999px;padding:8px 14px;font-size:14px;cursor:pointer}
-nav button.on{background:var(--vio);color:#fff;border-color:var(--vio)}
-main{max-width:760px;margin:0 auto;padding:14px 12px 40px}
-.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.card h2{margin:0 0 6px;font-size:18px}.card h3{margin:14px 0 6px;font-size:15px}
-.mut{color:var(--mut);font-size:13px}.big{font-size:30px;font-weight:800}
-.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;color:#fff}
-.p-cal{background:var(--red)}.p-tib{background:var(--org)}.p-dor{background:#475569}
-.btn{display:inline-block;border:0;border-radius:10px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center}
-.btn-v{background:var(--vio);color:#fff}.btn-w{background:var(--wa);color:#fff}.btn-g{background:#e2e8f0;color:var(--ink)}.btn-t{background:var(--tea);color:#fff}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{flex:1 1 auto}
-input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;font-size:15px;margin:4px 0}
-textarea{min-height:90px}label{font-size:13px;font-weight:600;color:var(--mut)}
-table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px 6px;border-bottom:1px solid #f1f5f9;text-align:left}
-.msg{background:#f1f5f9;border-radius:10px;padding:10px;font-size:14px;white-space:pre-wrap}
-.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kpi .card{margin:0;text-align:center}
-#gate{position:fixed;inset:0;background:rgba(30,27,75,.92);z-index:50;display:flex;align-items:center;justify-content:center;padding:20px}
-#gate .box{background:#fff;border-radius:18px;padding:24px;max-width:420px;width:100%}
-#gate h2{margin-top:0}
-.hidden{display:none!important}
-.demo-buy-band{background:#6d28d9;color:#fff;text-align:center;padding:10px 12px;font-size:14px;font-weight:700}
+:root{--navy:#0f2040;--navy2:#1b335e;--teal:#0e9f9b;--teal-d:#0b7e7c;--teal-bg:#e3f4f3;--wa:#1fa855;--wa-d:#178542;--ink:#16233a;--mut:#5b6b82;--bg:#f3f5f9;--card:#fff;--line:#e2e8f0;--red:#dc2626;--red-bg:#fdecec;--amber:#b45309;--amber-bg:#fef3c7;--green:#16a34a;--green-bg:#e6f6ea;--slate:#475569}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.ic{width:20px;height:20px;flex:none;vertical-align:-4px}
+.ic-lg{width:26px;height:26px}
+header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:20px 16px 18px}
+header .brand{display:flex;gap:12px;align-items:center;max-width:760px;margin:0 auto}
+.logo-mark{width:44px;height:44px;border-radius:13px;background:var(--teal);display:flex;align-items:center;justify-content:center;flex:none;color:#fff}
+.logo-mark .ic{width:26px;height:26px}
+header h1{margin:0;font-size:22px;letter-spacing:-.3px;font-weight:800}header p{margin:3px 0 0;opacity:.88;font-size:14px;line-height:1.4}
+.demo-band{background:var(--amber-bg);color:#92400e;text-align:center;padding:9px;font-size:13px;font-weight:600}
+.demo-buy-band{background:var(--navy);color:#fff;text-align:center;padding:10px 12px;font-size:14px;font-weight:700}
 .demo-buy-band a{color:#fff;text-decoration:underline}
-footer{ text-align:center;color:var(--mut);font-size:12px;padding:20px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav button{white-space:nowrap;border:1px solid transparent;background:transparent;border-radius:999px;padding:8px 13px;font-size:14px;font-weight:600;color:var(--mut);cursor:pointer;display:flex;gap:6px;align-items:center}
+nav button .ic{width:17px;height:17px}
+nav button.on{background:var(--navy);color:#fff}
+main{max-width:760px;margin:0 auto;padding:16px 12px 44px}
+.card{background:var(--card);border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(15,32,64,.06);border:1px solid #eef1f6}
+.card h2{margin:0 0 4px;font-size:19px;letter-spacing:-.2px}.card h3{margin:16px 0 6px;font-size:15px}
+.sub{color:var(--mut);font-size:13.5px;line-height:1.5;margin:0 0 6px}
+.mut{color:var(--mut);font-size:13px}.big{font-size:30px;font-weight:800;letter-spacing:-.5px}
+.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700}
+.p-cal{background:var(--red-bg);color:var(--red)}.p-tib{background:var(--amber-bg);color:var(--amber)}.p-dor{background:#eef2f7;color:var(--slate)}
+.p-risk{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}.p-teal{background:var(--teal-bg);color:var(--teal-d)}
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:12px;padding:11px 16px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center;line-height:1}
+.btn-v{background:var(--navy);color:#fff}.btn-w{background:var(--wa);color:#fff}.btn-t{background:var(--teal);color:#fff}.btn-g{background:#eef2f7;color:var(--ink)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{flex:1 1 auto}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:12px;font-size:15px;margin:4px 0;background:#fff;color:var(--ink)}
+textarea{min-height:96px}label{font-size:13px;font-weight:600;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px 6px;border-bottom:1px solid #f1f5f9;text-align:left}
+.msg{background:#f6f8fb;border:1px solid #eef1f6;border-radius:12px;padding:11px 12px;font-size:14px;line-height:1.5;white-space:pre-wrap}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:12px}.kpi .card{margin:0}
+.plan-card{display:flex;gap:13px;padding:15px 16px;border-left:4px solid var(--teal)}
+.plan-ic{width:42px;height:42px;border-radius:13px;background:var(--teal-bg);color:var(--teal-d);display:flex;align-items:center;justify-content:center;flex:none}
+.plan-ic.warn{background:var(--amber-bg);color:var(--amber)}
+.plan-body{flex:1;min-width:0}.plan-body strong{font-size:15.5px}
+.reason{font-size:13px;color:var(--mut);margin:2px 0 8px;line-height:1.45}
+.reason b{color:var(--ink)}
+.icon-chip{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:var(--teal-d);background:var(--teal-bg);border-radius:999px;padding:3px 9px}
+#gate{position:fixed;inset:0;background:rgba(15,32,64,.92);z-index:50;display:flex;align-items:center;justify-content:center;padding:20px}
+#gate .box{background:#fff;border-radius:20px;padding:26px;max-width:420px;width:100%}
+#gate h2{margin-top:0}
+#copilot{position:fixed;inset:0;background:rgba(15,32,64,.6);z-index:60;display:flex;align-items:flex-end;justify-content:center;padding:0}
+#copilot .box{background:#fff;border-radius:22px 22px 0 0;padding:22px 18px 26px;width:100%;max-width:560px;max-height:88vh;overflow:auto}
+#copilot h2{margin:0 0 4px;font-size:18px}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--mut);font-size:12px;padding:20px;line-height:1.5}
 </style>
 </head>
 <body>
+<header><div class="brand">
+<div class="logo-mark"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+<div><h1>MiVendedor IA</h1><p>Tu vendedor que no duerme: recupera clientes que ya pagaste por conseguir.</p></div>
+</div></header>
 <div class="demo-buy-band">Versión demo — <a href="producto-mivendedor-ia.html">Comprá la suscripción para uso ilimitado</a></div>
-<header>
-<h1>🤝 MiVendedor IA</h1>
-<p>Tu vendedor que no duerme: recupera clientes que ya pagaste por conseguir.</p>
-</header>
 <div id="demoBand" class="demo-band hidden">Estás en MODO DEMO con datos de ejemplo. Toca "Probar con mis datos" para empezar con tu negocio.</div>
 <nav id="tabs">
-<button data-tab="hoy" class="on">Hoy</button>
-<button data-tab="clientes">Clientes</button>
-<button data-tab="sec">Secuencias</button>
-<button data-tab="cumple">Cumpleaños</button>
-<button data-tab="google">Google</button>
-<button data-tab="plata">Plata</button>
-<button data-tab="plantillas">Plantillas</button>
-<button data-tab="ajustes">Ajustes</button>
+<button data-tab="hoy" class="on"><i data-icon="plan"></i>Hoy</button>
+<button data-tab="clientes"><i data-icon="user"></i>Clientes</button>
+<button data-tab="sec"><i data-icon="list"></i>Secuencias</button>
+<button data-tab="cumple"><i data-icon="gift"></i>Cumpleaños</button>
+<button data-tab="google"><i data-icon="star"></i>Google</button>
+<button data-tab="plata"><i data-icon="money"></i>Plata</button>
+<button data-tab="plantillas"><i data-icon="chat"></i>Plantillas</button>
+<button data-tab="ajustes"><i data-icon="clock"></i>Ajustes</button>
 </nav>
 <main>
 <section id="v-hoy" class="view"></section>
@@ -77,21 +95,55 @@ footer{ text-align:center;color:var(--mut);font-size:12px;padding:20px}
 </div>
 <p class="mut">Acceso: el cobro y la entrega los controla Hotmart. Esta app no usa cuentas con servidor: tu clave queda guardada solo en tu navegador y tus datos quedan en tu dispositivo.</p>
 </div></div>
+
+<div id="copilot" class="hidden"><div class="box">
+<h2 id="cp-title">Copiloto</h2>
+<p class="sub" id="cp-reason"></p>
+<label>Mensaje sugerido (puedes editarlo antes de enviar)</label>
+<textarea id="cp-msg"></textarea>
+<div class="row" style="margin-top:8px">
+<button class="btn btn-w" id="cp-wa">Abrir WhatsApp</button>
+<button class="btn btn-g" id="cp-done">Ya le escribí</button>
+<button class="btn btn-g" onclick="closeCopilot()">Cerrar</button>
+</div>
+</div></div>
 <script>
 /* ===== MiVendedor IA — lógica (sin servidor, datos en localStorage) ===== */
 const LS = 'mivendedor_ia_v1';
-/* ===== Variante DEMO pública: límites (no persistencia, máx. 5 clientes propios) ===== */
-const DEMO_MODE = true;
-const DEMO_LIMIT = 5;
-function ownCount(){ return S ? S.clients.filter(c => typeof c.id === 'string').length : 0; }
-function demoLimitMsg(){ return 'Límite de la demo: puedes cargar hasta 5 clientes propios. Comprá la suscripción de MiVendedor IA para uso ilimitado.'; }
 const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* --- Iconos propios (SVG inline, trazo 24px consistente) --- */
+const ICON_PATHS = {
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/>',
+  chat: '<path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2.1-5.3A8.5 8.5 0 1 1 21 11.5z"/>',
+  calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/>',
+  money: '<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h.01M18 12h.01"/>',
+  star: '<path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/>',
+  gift: '<rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-1-3-4-4-5.5-2.5C5 7 8 8 12 8zm0 0c1-3 4-4 5.5-2.5C19 7 16 8 12 8z"/>',
+  list: '<path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.5 1.5L7.5 5M3.5 12l1.5 1.5 2.5-2.5M3.5 18l1.5 1.5 2.5-2.5"/>',
+  plan: '<path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.5 1.5L7.5 5M3.5 12l1.5 1.5 2.5-2.5"/>',
+  chart: '<path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>',
+  alert: '<path d="M12 3 22 20H2z"/><path d="M12 10v4M12 17h.01"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  download: '<path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/>',
+  trash: '<path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/>',
+  check: '<path d="M4 12.5l5 5L20 6.5"/>',
+  spark: '<path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8z"/>',
+  send: '<path d="M5 12h14M13 6l6 6-6 6"/>'
+};
+const FILLED_ICONS = { star: 1, spark: 1 };
+function icon(name, cls){
+  const filled = !!FILLED_ICONS[name];
+  return '<svg class="ic ' + (cls || '') + '" viewBox="0 0 24 24" fill="' + (filled ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + (ICON_PATHS[name] || '') + '</svg>';
+}
+function injectIcons(){ document.querySelectorAll('[data-icon]').forEach(el => { el.innerHTML = icon(el.dataset.icon); }); }
 function todayParts(){ const d = new Date(); return [d.getFullYear(), d.getMonth()+1, d.getDate()]; }
 function todayISO(){ const [y,m,dd] = todayParts(); return y + '-' + String(m).padStart(2,'0') + '-' + String(dd).padStart(2,'0'); }
 function parseDate(s){ if(!s) return null; const p = String(s).split('-').map(Number); if(p.length < 3 || !p[0]) return null; return Date.UTC(p[0], p[1]-1, p[2]); }
 function daysSince(s){ const t = parseDate(s); if(t === null) return 9999; const [y,m,d] = todayParts(); return Math.floor((Date.UTC(y, m-1, d) - t) / 86400000); }
-function daysUntilBirthday(md){ // md = 'MM-DD' o 'YYYY-MM-DD'
+function addDaysISO(iso, n){ const t = parseDate(iso); if(t === null) return ''; const dt = new Date(t + n*86400000); return dt.getUTCFullYear() + '-' + String(dt.getUTCMonth()+1).padStart(2,'0') + '-' + String(dt.getUTCDate()).padStart(2,'0'); }
+function daysUntilBirthday(md){
   if(!md) return 9999; const parts = String(md).split('-'); const m = Number(parts.length === 3 ? parts[1] : parts[0]); const d = Number(parts.length === 3 ? parts[2] : parts[1]);
   const [y, cm, cd] = todayParts(); let next = Date.UTC(y, m-1, d); const now = Date.UTC(y, cm-1, cd);
   if(next < now) next = Date.UTC(y+1, m-1, d); return Math.round((next - now) / 86400000);
@@ -115,18 +167,26 @@ function tempOf(c){
   if(d <= S.settings.warmMax) return 'tibio';
   return 'dormido';
 }
+function atRisk(c){
+  const d = daysSince(c.lastContact || c.lastPurchase);
+  return tempOf(c) === 'tibio' && d >= S.settings.warmMax - 5 && d <= S.settings.warmMax;
+}
+function nextTouchFor(c){ return c.nextTouch || addDaysISO(c.lastContact || c.lastPurchase, 30); }
 const TEMP_LABEL = { caliente: 'Caliente', tibio: 'Tibio', dormido: 'Dormido' };
 const TEMP_CLASS = { caliente: 'p-cal', tibio: 'p-tib', dormido: 'p-dor' };
 
 const DEFAULT_TEMPLATES = {
-  bienvenida: 'Hola {nombre}, ¡bienvenido a {negocio}! Gracias por tu compra. Cualquier duda, escríbeme por aquí. 😊',
+  bienvenida: 'Hola {nombre}, ¡bienvenido a {negocio}! Gracias por tu compra. Cualquier duda, escríbeme por aquí.',
   postventa: 'Hola {nombre}, ¿cómo te fue con {producto}? Quería saber si todo llegó bien y si necesitas algo más.',
   reactivacion: 'Hola {nombre}, hace {dias} días que no nos visitas y te extrañamos en {negocio}. ¿Te gustaría que te cuente lo nuevo de {producto}?',
   resena: 'Hola {nombre}, gracias por confiar en {negocio}. ¿Nos ayudarías con una reseña en Google? Te toma un minuto y nos ayuda muchísimo. ¡Gracias!',
-  referido: 'Hola {nombre}, si conoces a alguien que necesite {producto}, pásale mi contacto. Por cada amigo que venga de tu parte, tienes un beneficio especial. 🙌',
+  referido: 'Hola {nombre}, si conoces a alguien que necesite {producto}, pásale mi contacto. Por cada amigo que venga de tu parte, tienes un beneficio especial.',
   sec30: 'Hola {nombre}, hace un mes que no pasas por {negocio}. Tenemos algo nuevo de {producto} que te puede interesar. ¿Te lo muestro?',
   sec60: 'Hola {nombre}, hace {dias} días que no sabemos de ti. En {negocio} guardamos algo pensado para ti. ¿Quieres verlo?',
-  sec90: 'Hola {nombre}, ¡te extrañamos! Hace {dias} días que no nos visitas. Vuelve esta semana y tienes un beneficio especial en {producto}. ¿Te reservo un lugar?'
+  sec90: 'Hola {nombre}, ¡te extrañamos! Hace {dias} días que no nos visitas. Vuelve esta semana y tienes un beneficio especial en {producto}. ¿Te reservo un lugar?',
+  cumple: '¡Feliz cumpleaños, {nombre}! En {negocio} te queremos saludar y tienes un beneficio especial esta semana. ¿Pasas a buscarlo?',
+  seguimiento: 'Hola {nombre}, ¿cómo te va? Pasaba a saludarte desde {negocio} y contarte que tenemos novedades de {producto}. ¿Te interesa que te cuente?',
+  cierre: 'Hola {nombre}, ¿cómo estás? Te escribo desde {negocio} porque tenemos {producto} disponible y pensé en ti. ¿Te lo reservo?'
 };
 
 function demoData(){
@@ -134,7 +194,7 @@ function demoData(){
   const iso = (yy, mm, dd) => yy + '-' + String(mm).padStart(2,'0') + '-' + String(dd).padStart(2,'0');
   const daysAgo = n => { const dt = new Date(Date.UTC(y, m-1, d) - n*86400000); return iso(dt.getUTCFullYear(), dt.getUTCMonth()+1, dt.getUTCDate()); };
   const bdayToday = String(m).padStart(2,'0') + '-' + String(d).padStart(2,'0');
-  const mk = (id, name, phone, product, days, amount, birthday) => ({ id, name, phone, email: '', lastContact: daysAgo(days), lastPurchase: daysAgo(days), amount, product, notes: '', birthday: birthday || '' });
+  const mk = (id, name, phone, product, days, amount, birthday) => ({ id, name, phone, email: '', lastContact: daysAgo(days), lastPurchase: daysAgo(days), amount, product, notes: '', birthday: birthday || '', nextTouch: '' });
   return [
     mk(1, 'María González', '549110000001', 'Corte y color', 3, 45, '05-14'),
     mk(2, 'Carlos Pérez', '549110000002', 'Camisa casual', 8, 60, bdayToday),
@@ -151,29 +211,57 @@ function demoData(){
   ];
 }
 function freshState(){
-  return { clients: demoData(), reviews: [], recovered: [], templates: Object.assign({}, DEFAULT_TEMPLATES),
+  return { clients: demoData(), reviews: [], recovered: [], contacts: [], templates: Object.assign({}, DEFAULT_TEMPLATES),
     checklist: { fotos: false, horarios: false, resenas: false, datos: false, publicaciones: false },
     settings: { business: 'Mi negocio', hotMax: 15, warmMax: 45, price: 29 },
     demo: true, key: '', firstRun: true };
 }
 let S = null;
+/* ===== Variante DEMO pública: límites (no persistencia, máx. 5 clientes propios) ===== */
+const DEMO_MODE = true;
+const DEMO_LIMIT = 5;
+function ownCount(){ return S ? S.clients.filter(c => typeof c.id === 'string').length : 0; }
+function demoLimitMsg(){ return 'Límite de la demo: puedes cargar hasta 5 clientes propios. Comprá la suscripción de MiVendedor IA para uso ilimitado.'; }
 function save(){ if(DEMO_MODE) return; try{ localStorage.setItem(LS, JSON.stringify(S)); }catch(e){} }
 function load(){ try{ const raw = localStorage.getItem(LS); return raw ? JSON.parse(raw) : null; }catch(e){ return null; } }
 function uid(){ return Date.now() + '' + Math.floor(Math.random()*1000); }
 
-function todayList(){
-  const seen = new Set(); const out = [];
-  const push = c => { if(!seen.has(c.id)){ seen.add(c.id); out.push(c); } };
-  S.clients.filter(c => tempOf(c) === 'dormido').forEach(push);
-  S.clients.filter(c => tempOf(c) === 'tibio' && daysSince(c.lastContact || c.lastPurchase) >= 15).forEach(push);
-  S.clients.filter(c => daysUntilBirthday(c.birthday) === 0).forEach(push);
-  return out;
+/* ===== Automatización: plan del día, copiloto, alertas ===== */
+function seqStageOf(c){
+  const d = daysSince(c.lastContact || c.lastPurchase);
+  return d >= 90 ? '90' : d >= 60 ? '60' : d >= 30 ? '30' : null;
+}
+/* Motivo + mensaje sugerido según el estado real del cliente */
+function copilotFor(c){
+  const d = daysSince(c.lastContact || c.lastPurchase);
+  const bd = daysUntilBirthday(c.birthday);
+  if(bd === 0) return { tag: 'Cumpleaños', iconName: 'gift', reason: 'Hoy es su cumpleaños: el mensaje que más vende es el saludo, no una oferta.', tpl: 'cumple' };
+  if(bd <= 3) return { tag: 'Cumpleaños cerca', iconName: 'gift', reason: 'Cumple años en ' + bd + ' días: anticípate con el saludo y el beneficio.', tpl: 'cumple' };
+  if(tempOf(c) === 'dormido'){
+    const stage = seqStageOf(c) || '90';
+    return { tag: 'Recuperación', iconName: 'alert', reason: 'Hace ' + d + ' días sin contacto: está dormido. La secuencia indica el paso de ' + stage + ' días.', tpl: 'sec' + stage };
+  }
+  if(atRisk(c)) return { tag: 'En riesgo', iconName: 'alert', reason: 'Hace ' + d + ' días sin contacto: se duerme en ' + (S.settings.warmMax - d) + ' días si no le escribes hoy.', tpl: 'reactivacion' };
+  if(tempOf(c) === 'tibio') return { tag: 'Seguimiento', iconName: 'chat', reason: 'Hace ' + d + ' días sin contacto: está tibio, un seguimiento ahora evita que se enfríe.', tpl: 'seguimiento' };
+  return { tag: 'Cierre', iconName: 'check', reason: 'Cliente activo (hace ' + d + ' días): momento de ofrecerle el próximo paso.', tpl: 'cierre' };
+}
+function buildPlan(){
+  const scored = [];
+  const seen = new Set();
+  const push = (c, score) => { if(!seen.has(c.id)){ seen.add(c.id); scored.push({ c, score, cp: copilotFor(c) }); } };
+  S.clients.filter(c => daysUntilBirthday(c.birthday) === 0).forEach(c => push(c, 0));
+  S.clients.filter(c => atRisk(c)).forEach(c => push(c, 1));
+  S.clients.filter(c => tempOf(c) === 'dormido').sort((a, b) => daysSince(b.lastContact || b.lastPurchase) - daysSince(a.lastContact || a.lastPurchase)).forEach(c => push(c, 2));
+  S.clients.filter(c => seqStageOf(c)).sort((a, b) => daysSince(b.lastContact || b.lastPurchase) - daysSince(a.lastContact || a.lastPurchase)).forEach(c => push(c, 3));
+  S.clients.filter(c => tempOf(c) === 'tibio' && daysSince(c.lastContact || c.lastPurchase) >= 15).forEach(c => push(c, 4));
+  S.clients.filter(c => { const nt = nextTouchFor(c); return nt && nt <= todayISO(); }).forEach(c => push(c, 5));
+  scored.sort((a, b) => a.score - b.score);
+  return scored.slice(0, 5);
 }
 function seqList(){
   return S.clients.map(c => {
-    const d = daysSince(c.lastContact || c.lastPurchase);
-    const stage = d >= 90 ? '90' : d >= 60 ? '60' : d >= 30 ? '30' : null;
-    return stage ? { c, stage, days: d } : null;
+    const stage = seqStageOf(c);
+    return stage ? { c, stage, days: daysSince(c.lastContact || c.lastPurchase) } : null;
   }).filter(Boolean).sort((a, b) => b.days - a.days);
 }
 function moneyTotals(){
@@ -183,75 +271,102 @@ function moneyTotals(){
   const price = Number(S.settings.price || 29);
   return { monthTotal, total, roi: price > 0 ? monthTotal / price : 0, countMonth: S.recovered.filter(r => r.date.slice(0, 7) === month).length };
 }
+function weeklySummary(){
+  const weekAgo = addDaysISO(todayISO(), -7);
+  const contacted = (S.contacts || []).filter(x => x.date >= weekAgo).length;
+  const recoveredWeek = S.recovered.filter(r => r.date >= weekAgo).reduce((a, r) => a + Number(r.amount || 0), 0);
+  const pending = buildPlan().length + S.clients.filter(c => atRisk(c)).length;
+  return { contacted, recoveredWeek, pending };
+}
 
 /* ===== Vistas ===== */
 function pill(c){ const t = tempOf(c); return '<span class="pill ' + TEMP_CLASS[t] + '">' + TEMP_LABEL[t] + ' · ' + daysSince(c.lastContact || c.lastPurchase) + ' días</span>'; }
-function clientCard(c, msgKey){
-  const msg = fillTemplate(S.templates[msgKey || 'reactivacion'], c);
-  return '<div class="card"><div class="row"><strong>' + esc(c.name) + '</strong> ' + pill(c) + '</div>'
-    + '<p class="mut">' + esc(c.product || '') + (c.phone ? ' · ' + esc(c.phone) : '') + (c.birthday ? ' · 🎂 ' + esc(c.birthday) : '') + '</p>'
+function riskBadge(c){ return atRisk(c) ? ' <span class="pill p-risk">' + icon('alert') + ' En riesgo</span>' : ''; }
+function planActionCard(item){
+  const c = item.c; const cp = item.cp;
+  const msg = fillTemplate(S.templates[cp.tpl], c);
+  const warn = cp.tag === 'En riesgo' || cp.tag === 'Recuperación';
+  return '<div class="card plan-card"><div class="plan-ic ' + (warn ? 'warn' : '') + '">' + icon(cp.iconName, 'ic-lg') + '</div>'
+    + '<div class="plan-body"><div class="row"><strong>' + esc(c.name) + '</strong> ' + pill(c) + ' <span class="pill p-teal">' + esc(cp.tag) + '</span></div>'
+    + '<p class="reason">' + esc(cp.reason) + '</p>'
     + '<div class="msg">' + esc(msg) + '</div>'
     + '<div class="row" style="margin-top:10px">'
-    + '<a class="btn btn-w" href="' + waLink(c.phone, msg) + '" target="_blank" rel="noopener">WhatsApp</a>'
-    + '<button class="btn btn-g" onclick="markContacted(\'' + c.id + '\')">Ya le escribí</button>'
-    + '<button class="btn btn-t" onclick="markRecovered(\'' + c.id + '\')">Marcar recuperado</button>'
-    + '</div></div>';
+    + '<a class="btn btn-w" href="' + waLink(c.phone, msg) + '" target="_blank" rel="noopener">' + icon('chat') + ' WhatsApp</a>'
+    + '<button class="btn btn-g" onclick="markContacted(\'' + c.id + '\')">' + icon('check') + ' Ya le escribí</button>'
+    + '<button class="btn btn-t" onclick="openCopilot(\'' + c.id + '\')">' + icon('spark') + ' Copiloto</button>'
+    + '</div></div></div>';
 }
 function renderHoy(){
-  const list = todayList(); const mt = moneyTotals();
-  let h = '<div class="card"><h2>Hoy háblale a estos</h2><p class="mut">Dormidos primero, luego tibios sin contacto hace 15+ días y cumpleaños del día. Toca WhatsApp y el mensaje sale listo.</p>';
+  const plan = buildPlan(); const mt = moneyTotals(); const wk = weeklySummary();
+  const risks = S.clients.filter(c => atRisk(c));
+  let h = '<div class="card"><h2>Plan de hoy</h2><p class="sub">Tu vendedor IA ya ordenó el día: las 5 acciones con más impacto, cada una con su motivo y el mensaje listo. Empieza por la primera.</p>';
   if(S.demo) h += '<button class="btn btn-v" onclick="clearDemo()">Probar con mis datos (borra la demo)</button>';
   h += '</div>';
-  if(!list.length) h += '<div class="card"><p>🎉 No tienes a nadie pendiente hoy. ¡Buen trabajo!</p></div>';
-  list.forEach(c => { h += clientCard(c, daysUntilBirthday(c.birthday) === 0 ? 'bienvenida' : 'reactivacion'); });
-  h += '<div class="kpi"><div class="card"><div class="big">' + S.clients.length + '</div><div class="mut">Clientes cargados</div></div>'
+  if(!plan.length) h += '<div class="card"><p><strong>Sin pendientes hoy.</strong> Nadie en riesgo, nadie dormido y ningún cumpleaños. Buen trabajo: el seguimiento está al día.</p></div>';
+  plan.forEach(item => { h += planActionCard(item); });
+  if(risks.length){
+    h += '<div class="card"><h2>En riesgo de dormirse</h2><p class="sub">Estos clientes se duermen en los próximos 5 días si no les escribes. Escríbeles antes de que pasen a dormidos.</p>';
+    risks.forEach(c => {
+      const d = daysSince(c.lastContact || c.lastPurchase);
+      h += '<div class="row" style="padding:6px 0;border-bottom:1px solid #f1f5f9"><strong>' + esc(c.name) + '</strong><span class="mut">hace ' + d + ' días · se duerme en ' + (S.settings.warmMax - d) + ' días</span>'
+        + '<button class="btn btn-g" onclick="openCopilot(\'' + c.id + '\')">Copiloto</button></div>';
+    });
+    h += '</div>';
+  }
+  h += '<div class="card"><h2>Resumen de la semana</h2><p class="sub">Últimos 7 días, calculado solo.</p></div>'
+    + '<div class="kpi"><div class="card"><div class="big">' + wk.contacted + '</div><div class="mut">Contactados esta semana</div></div>'
+    + '<div class="card"><div class="big">$' + wk.recoveredWeek.toFixed(0) + '</div><div class="mut">Recuperado esta semana</div></div></div>'
+    + '<div class="kpi" style="margin-top:12px"><div class="card"><div class="big">' + S.clients.length + '</div><div class="mut">Clientes cargados</div></div>'
     + '<div class="card"><div class="big">$' + mt.monthTotal.toFixed(0) + '</div><div class="mut">Recuperado este mes</div></div></div>';
   $('v-hoy').innerHTML = h;
 }
+function clientRowCard(c){
+  return '<div class="card"><div class="row"><button class="btn btn-g" style="flex:0 0 auto" onclick="openCopilot(\'' + c.id + '\')">' + icon('spark') + '</button><strong>' + esc(c.name) + '</strong> ' + pill(c) + riskBadge(c) + '</div>'
+    + '<p class="mut">' + esc(c.product || '') + (c.phone ? ' · ' + esc(c.phone) : '') + (c.email ? ' · ' + esc(c.email) : '')
+    + (c.lastPurchase ? ' · Últ. compra: ' + esc(c.lastPurchase) : '') + (c.amount ? ' · $' + esc(c.amount) : '')
+    + (c.birthday ? ' · Cumple: ' + esc(c.birthday) : '') + (c.notes ? '<br>' + esc(c.notes) : '')
+    + '<br>Próximo toque sugerido: ' + esc(nextTouchFor(c)) + '</p>'
+    + '<div class="row"><button class="btn btn-g" onclick="markContacted(\'' + c.id + '\')">Ya le escribí</button>'
+    + '<button class="btn btn-t" onclick="markRecovered(\'' + c.id + '\')">Marcar recuperado</button>'
+    + '<button class="btn btn-g" onclick="delClient(\'' + c.id + '\')">Eliminar</button></div></div>';
+}
 function renderClientes(){
-  let h = '<div class="card"><h2>Clientes</h2><p class="mut">Carga tus clientes a mano o importa un CSV con columnas: nombre, telefono, email, ultima_compra, monto, producto, notas, cumpleanos.</p>'
+  let h = '<div class="card"><h2>Clientes</h2><p class="sub">Carga tus clientes a mano o importa un CSV con columnas: nombre, telefono, email, ultima_compra, monto, producto, notas, cumpleanos. Toca el botón del copiloto en un cliente para que te sugiera el mensaje ideal según su estado.</p>'
     + '<div class="row"><input id="f-nombre" placeholder="Nombre *"><input id="f-tel" placeholder="Teléfono con código de país (ej: 549110000000)"></div>'
     + '<div class="row"><input id="f-email" placeholder="Email (opcional)"><input id="f-prod" placeholder="Producto o servicio"></div>'
     + '<div class="row"><input id="f-ult" type="date"><input id="f-monto" type="number" placeholder="Monto última compra"></div>'
     + '<div class="row"><input id="f-cum" type="date"><input id="f-notas" placeholder="Notas"></div>'
-    + '<div class="row" style="margin-top:8px"><button class="btn btn-v" onclick="addClient()">Agregar cliente</button>'
-    + '<label class="btn btn-g" style="cursor:pointer">Importar CSV<input type="file" accept=".csv" onchange="importCSV(event)" style="display:none"></label>'
-    + '<button class="btn btn-g" onclick="exportCSV()">Exportar CSV</button></div></div>';
+    + '<div class="row" style="margin-top:8px"><button class="btn btn-v" onclick="addClient()">' + icon('plus') + ' Agregar cliente</button>'
+    + '<label class="btn btn-g" style="cursor:pointer">' + icon('download') + ' Importar CSV<input type="file" accept=".csv" onchange="importCSV(event)" style="display:none"></label>'
+    + '<button class="btn btn-g" onclick="exportCSV()">' + icon('download') + ' Exportar CSV</button></div></div>';
   const sorted = [...S.clients].sort((a, b) => daysSince(b.lastContact || b.lastPurchase) - daysSince(a.lastContact || a.lastPurchase));
   if(!sorted.length) h += '<div class="card"><p>Todavía no tienes clientes. Agrega el primero arriba o importa un CSV.</p></div>';
-  sorted.forEach(c => {
-    h += '<div class="card"><div class="row"><strong>' + esc(c.name) + '</strong> ' + pill(c) + '</div>'
-      + '<p class="mut">' + esc(c.product || '') + (c.phone ? ' · ' + esc(c.phone) : '') + (c.email ? ' · ' + esc(c.email) : '')
-      + (c.lastPurchase ? ' · Últ. compra: ' + esc(c.lastPurchase) : '') + (c.amount ? ' · $' + esc(c.amount) : '')
-      + (c.birthday ? ' · 🎂 ' + esc(c.birthday) : '') + (c.notes ? '<br>' + esc(c.notes) : '') + '</p>'
-      + '<div class="row"><button class="btn btn-g" onclick="markContacted(\'' + c.id + '\')">Ya le escribí</button>'
-      + '<button class="btn btn-t" onclick="markRecovered(\'' + c.id + '\')">Marcar recuperado</button>'
-      + '<button class="btn btn-g" onclick="delClient(\'' + c.id + '\')">Eliminar</button></div></div>';
-  });
+  sorted.forEach(c => { h += clientRowCard(c); });
   $('v-clientes').innerHTML = h;
 }
 function renderSec(){
   const list = seqList();
-  let h = '<div class="card"><h2>Secuencias de reactivación 30 / 60 / 90 días</h2><p class="mut">Cada cliente sin contacto entra solo en su etapa. El mensaje cambia según la etapa.</p></div>';
+  let h = '<div class="card"><h2>Secuencias de reactivación 30 / 60 / 90 días</h2><p class="sub">Cada cliente sin contacto entra solo en su etapa. El mensaje cambia según la etapa.</p></div>';
   if(!list.length) h += '<div class="card"><p>Nadie en secuencia por ahora. Los clientes entran a los 30 días sin contacto.</p></div>';
   list.forEach(({ c, stage }) => {
     const msg = fillTemplate(S.templates['sec' + stage], c);
     h += '<div class="card"><div class="row"><strong>' + esc(c.name) + '</strong> <span class="pill p-tib">Etapa ' + stage + ' días</span></div>'
       + '<div class="msg" style="margin-top:8px">' + esc(msg) + '</div>'
-      + '<div class="row" style="margin-top:10px"><a class="btn btn-w" href="' + waLink(c.phone, msg) + '" target="_blank" rel="noopener">WhatsApp</a>'
-      + '<button class="btn btn-g" onclick="markContacted(\'' + c.id + '\')">Ya le escribí</button></div></div>';
+      + '<div class="row" style="margin-top:10px"><a class="btn btn-w" href="' + waLink(c.phone, msg) + '" target="_blank" rel="noopener">' + icon('chat') + ' WhatsApp</a>'
+      + '<button class="btn btn-g" onclick="markContacted(\'' + c.id + '\')">Ya le escribí</button>'
+      + '<button class="btn btn-t" onclick="openCopilot(\'' + c.id + '\')">Copiloto</button></div></div>';
   });
   $('v-sec').innerHTML = h;
 }
 function renderCumple(){
   const list = S.clients.map(c => ({ c, d: daysUntilBirthday(c.birthday) })).filter(x => x.d <= 30).sort((a, b) => a.d - b.d);
-  let h = '<div class="card"><h2>Cumpleaños (próximos 30 días)</h2><p class="mut">El mensaje de cumpleaños vende más que cualquier oferta: el cliente se siente recordado.</p></div>';
+  let h = '<div class="card"><h2>Cumpleaños (próximos 30 días)</h2><p class="sub">El mensaje de cumpleaños vende más que cualquier oferta: el cliente se siente recordado.</p></div>';
   if(!list.length) h += '<div class="card"><p>Sin cumpleaños en los próximos 30 días. Carga la fecha de cumpleaños en tus clientes para activar estos avisos.</p></div>';
   list.forEach(({ c, d }) => {
-    const msg = fillTemplate('¡Feliz cumpleaños, {nombre}! 🎂 En {negocio} te queremos saludar y tienes un beneficio especial esta semana. ¿Pasas a buscarlo?', c);
+    const msg = fillTemplate(S.templates.cumple, c);
     h += '<div class="card"><div class="row"><strong>' + esc(c.name) + '</strong> <span class="pill ' + (d === 0 ? 'p-cal' : 'p-tib') + '">' + (d === 0 ? '¡HOY!' : 'en ' + d + ' días') + '</span></div>'
       + '<div class="msg" style="margin-top:8px">' + esc(msg) + '</div>'
-      + '<div class="row" style="margin-top:10px"><a class="btn btn-w" href="' + waLink(c.phone, msg) + '" target="_blank" rel="noopener">WhatsApp</a></div></div>';
+      + '<div class="row" style="margin-top:10px"><a class="btn btn-w" href="' + waLink(c.phone, msg) + '" target="_blank" rel="noopener">' + icon('chat') + ' WhatsApp</a></div></div>';
   });
   $('v-cumple').innerHTML = h;
 }
@@ -265,17 +380,17 @@ function renderGoogle(){
   ];
   const done = items.filter(([k]) => S.checklist[k]).length;
   const score = Math.round(done / items.length * 100);
-  let h = '<div class="card"><h2>Salud de tu ficha de Google</h2><p class="mut">Marca lo que ya hiciste esta semana. El puntaje sube solo.</p>'
+  let h = '<div class="card"><h2>Salud de tu ficha de Google</h2><p class="sub">Marca lo que ya hiciste esta semana. El puntaje sube solo.</p>'
     + '<div class="big">' + score + ' / 100</div>';
   items.forEach(([k, label]) => {
     h += '<label style="display:block;margin:8px 0"><input type="checkbox" style="width:auto" ' + (S.checklist[k] ? 'checked' : '') + ' onchange="toggleCheck(\'' + k + '\',this.checked)"> ' + label + '</label>';
   });
   h += '</div><div class="card"><h2>Reseñas recibidas</h2>'
-    + '<div class="row"><input id="r-autor" placeholder="Quién dejó la reseña"><select id="r-estrellas"><option value="5">★★★★★</option><option value="4">★★★★</option><option value="3">★★★</option><option value="2">★★</option><option value="1">★</option></select></div>'
+    + '<div class="row"><input id="r-autor" placeholder="Quién dejó la reseña"><select id="r-estrellas"><option value="5">5 estrellas</option><option value="4">4 estrellas</option><option value="3">3 estrellas</option><option value="2">2 estrellas</option><option value="1">1 estrella</option></select></div>'
     + '<textarea id="r-texto" placeholder="Texto de la reseña"></textarea>'
     + '<button class="btn btn-v" onclick="addReview()">Guardar reseña</button></div>';
   S.reviews.forEach((r, i) => {
-    h += '<div class="card"><strong>' + esc(r.author) + '</strong> ' + '★'.repeat(r.stars) + '<p class="mut">' + esc(r.text) + '</p>'
+    h += '<div class="card"><strong>' + esc(r.author) + '</strong> <span style="color:#f59e0b">' + icon('star').repeat(r.stars) + '</span><p class="mut">' + esc(r.text) + '</p>'
       + '<div class="row"><select id="tono-' + i + '"><option value="positiva">Respuesta positiva</option><option value="neutra">Respuesta neutra</option><option value="negativa">Respuesta negativa</option></select>'
       + '<button class="btn btn-t" onclick="genReply(' + i + ')">Generar respuesta</button></div>'
       + '<div id="resp-' + i + '" class="msg hidden" style="margin-top:8px"></div></div>';
@@ -284,11 +399,11 @@ function renderGoogle(){
 }
 function renderPlata(){
   const mt = moneyTotals();
-  let h = '<div class="card"><h2>Tablero de plata</h2><p class="mut">Marca cada cliente que vuelve a comprar gracias a tu seguimiento. La herramienta se vende sola cuando ves el número.</p></div>'
+  let h = '<div class="card"><h2>Tablero de plata</h2><p class="sub">Marca cada cliente que vuelve a comprar gracias a tu seguimiento. La herramienta se vende sola cuando ves el número.</p></div>'
     + '<div class="kpi"><div class="card"><div class="big">$' + mt.monthTotal.toFixed(0) + '</div><div class="mut">Recuperado este mes (' + mt.countMonth + ' clientes)</div></div>'
     + '<div class="card"><div class="big">$' + mt.total.toFixed(0) + '</div><div class="mut">Recuperado acumulado</div></div></div>'
     + '<div class="card"><h3>' + (mt.monthTotal > 0
-      ? '💰 Este mes la herramienta se pagó ' + mt.roi.toFixed(1) + ' veces (costo USD ' + Number(S.settings.price || 29) + '/mes).'
+      ? 'Este mes la herramienta se pagó ' + mt.roi.toFixed(1) + ' veces (costo USD ' + Number(S.settings.price || 29) + '/mes).'
       : 'Todavía sin recuperos registrados este mes. Marca tu primer cliente recuperado y el tablero empieza a trabajar para ti.') + '</h3>'
     + '<div class="row"><select id="rec-cliente">' + S.clients.map(c => '<option value="' + c.id + '">' + esc(c.name) + '</option>').join('') + '</select>'
     + '<input id="rec-monto" type="number" placeholder="Monto recuperado"></div>'
@@ -305,9 +420,10 @@ function renderPlantillas(){
   const defs = [
     ['bienvenida', 'Bienvenida'], ['postventa', 'Post-venta'], ['reactivacion', 'Reactivación'],
     ['resena', 'Pedido de reseña'], ['referido', 'Pedido de referido'],
-    ['sec30', 'Secuencia 30 días'], ['sec60', 'Secuencia 60 días'], ['sec90', 'Secuencia 90 días']
+    ['sec30', 'Secuencia 30 días'], ['sec60', 'Secuencia 60 días'], ['sec90', 'Secuencia 90 días'],
+    ['cumple', 'Cumpleaños'], ['seguimiento', 'Seguimiento tibio'], ['cierre', 'Cierre caliente']
   ];
-  let h = '<div class="card"><h2>Plantillas de mensajes</h2><p class="mut">Usa {nombre}, {producto} y {dias}: se reemplazan solos con los datos del cliente. Edita el texto y guarda.</p></div>';
+  let h = '<div class="card"><h2>Plantillas de mensajes</h2><p class="sub">Usa {nombre}, {producto} y {dias}: se reemplazan solos con los datos del cliente. Edita el texto y guarda.</p></div>';
   defs.forEach(([k, label]) => {
     h += '<div class="card"><label>' + label + '</label><textarea id="tpl-' + k + '">' + esc(S.templates[k] || '') + '</textarea>'
       + '<button class="btn btn-v" onclick="saveTpl(\'' + k + '\')">Guardar</button></div>';
@@ -336,6 +452,19 @@ function showTab(name){
 document.querySelectorAll('#tabs button').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
 
 /* ===== Acciones ===== */
+let CP_ID = null;
+function openCopilot(id){
+  const c = S.clients.find(x => x.id === id); if(!c) return;
+  CP_ID = id;
+  const cp = copilotFor(c);
+  $('cp-title').textContent = 'Copiloto · ' + c.name;
+  $('cp-reason').textContent = cp.reason + ' Temperatura: ' + TEMP_LABEL[tempOf(c)] + '.';
+  $('cp-msg').value = fillTemplate(S.templates[cp.tpl], c);
+  $('cp-wa').onclick = () => { window.open(waLink(c.phone, $('cp-msg').value), '_blank'); };
+  $('cp-done').onclick = () => { markContacted(id); closeCopilot(); };
+  $('copilot').classList.remove('hidden');
+}
+function closeCopilot(){ $('copilot').classList.add('hidden'); CP_ID = null; }
 function enterApp(withKey){
   const key = ($('gateKey').value || '').trim();
   if(withKey && key) S.key = key;
@@ -345,25 +474,33 @@ function enterApp(withKey){
   renderAll();
 }
 function clearDemo(){
-  S.clients = []; S.reviews = []; S.recovered = []; if(!DEMO_MODE) S.demo = false; save(); renderAll();
+  S.clients = []; S.reviews = []; S.recovered = []; S.contacts = []; if(!DEMO_MODE) S.demo = false; save(); renderAll();
 }
 function markContacted(id){
   const c = S.clients.find(x => x.id === id); if(!c) return;
-  c.lastContact = todayISO(); save(); renderAll();
+  c.lastContact = todayISO();
+  c.nextTouch = addDaysISO(todayISO(), 30);
+  if(!S.contacts) S.contacts = [];
+  S.contacts.push({ date: todayISO(), clientId: id });
+  save(); renderAll();
 }
 function markRecovered(id){
   const c = S.clients.find(x => x.id === id); if(!c) return;
   S.recovered.push({ clientId: id, amount: Number(c.amount || 0), date: todayISO() });
-  c.lastContact = todayISO(); c.lastPurchase = todayISO(); save(); renderAll(); showTab('plata');
+  c.lastContact = todayISO(); c.lastPurchase = todayISO(); c.nextTouch = addDaysISO(todayISO(), 30);
+  if(!S.contacts) S.contacts = [];
+  S.contacts.push({ date: todayISO(), clientId: id });
+  save(); renderAll(); showTab('plata');
 }
 function addClient(){
   const name = $('f-nombre').value.trim();
   if(!name){ alert('Escribe el nombre del cliente.'); return; }
   if(DEMO_MODE && ownCount() >= DEMO_LIMIT){ alert(demoLimitMsg()); return; }
+  const last = $('f-ult').value || todayISO();
   S.clients.push({ id: uid(), name, phone: $('f-tel').value.trim(), email: $('f-email').value.trim(),
-    product: $('f-prod').value.trim(), lastPurchase: $('f-ult').value || todayISO(),
-    lastContact: $('f-ult').value || todayISO(), amount: Number($('f-monto').value || 0),
-    birthday: $('f-cum').value || '', notes: $('f-notas').value.trim() });
+    product: $('f-prod').value.trim(), lastPurchase: last,
+    lastContact: last, amount: Number($('f-monto').value || 0),
+    birthday: $('f-cum').value || '', notes: $('f-notas').value.trim(), nextTouch: addDaysISO(last, 30) });
   if(!DEMO_MODE) S.demo = false; save(); renderAll(); showTab('clientes');
 }
 function delClient(id){ S.clients = S.clients.filter(x => x.id !== id); save(); renderAll(); }
@@ -385,12 +522,13 @@ function importCSV(ev){
     if(lines.length && /nombre/i.test(lines[0])) start = 1;
     let n = 0; let limitHit = false;
     for(let i = start; i < lines.length; i++){
-      if(DEMO_MODE && ownCount() >= DEMO_LIMIT){ limitHit = true; break; }
       const p = parseCSVLine(lines[i]);
       if(!p[0]) continue;
+      if(DEMO_MODE && ownCount() >= DEMO_LIMIT){ limitHit = true; break; }
+      const last = p[3] || todayISO();
       S.clients.push({ id: uid(), name: p[0], phone: p[1] || '', email: p[2] || '',
-        lastPurchase: p[3] || todayISO(), lastContact: p[3] || todayISO(), amount: Number(p[4] || 0),
-        product: p[5] || '', notes: p[6] || '', birthday: p[7] || '' });
+        lastPurchase: last, lastContact: last, amount: Number(p[4] || 0),
+        product: p[5] || '', notes: p[6] || '', birthday: p[7] || '', nextTouch: addDaysISO(last, 30) });
       n++;
     }
     if(!DEMO_MODE) S.demo = false; save(); renderAll();
@@ -423,7 +561,7 @@ function addRecovery(){
   const id = $('rec-cliente').value; const monto = Number($('rec-monto').value || 0);
   if(!id || !monto){ alert('Elige un cliente y escribe el monto recuperado.'); return; }
   S.recovered.push({ clientId: id, amount: monto, date: todayISO() });
-  const c = S.clients.find(x => x.id === id); if(c){ c.lastContact = todayISO(); c.lastPurchase = todayISO(); }
+  const c = S.clients.find(x => x.id === id); if(c){ c.lastContact = todayISO(); c.lastPurchase = todayISO(); c.nextTouch = addDaysISO(todayISO(), 30); }
   save(); renderPlata(); renderHoy();
 }
 function saveTpl(k){ S.templates[k] = $('tpl-' + k).value; save(); alert('Plantilla guardada.'); }
@@ -436,9 +574,12 @@ function saveAjustes(){
 }
 /* ===== Inicio ===== */
 (function init(){
-  if(DEMO_MODE){ S = freshState(); $('gate').classList.add('hidden'); renderAll(); return; }
+  if(DEMO_MODE){ S = freshState(); $('gate').classList.add('hidden'); injectIcons(); renderAll(); return; }
   S = load();
   if(!S){ S = freshState(); save(); }
+  if(!S.contacts) S.contacts = [];
+  if(!S.templates.cumple) Object.assign(S.templates, { cumple: DEFAULT_TEMPLATES.cumple, seguimiento: DEFAULT_TEMPLATES.seguimiento, cierre: DEFAULT_TEMPLATES.cierre });
+  injectIcons();
   if(S.firstRun){ $('gate').classList.remove('hidden'); }
   else { $('gate').classList.add('hidden'); }
   renderAll();
